@@ -23,7 +23,7 @@ function showProductsList(array){
     </div>
         `
 
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
     }
 }
 
