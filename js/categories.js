@@ -1,8 +1,6 @@
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_PROD_COUNT = "Cant.";
-const ORDER_BY_COST_ASC = "a, b";
-const ORDER_BY_COST_DESC = "b, a";
 var currentCategoriesArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
@@ -30,24 +28,6 @@ function sortCategories(criteria, array){
 
             if ( aCount > bCount ){ return -1; }
             if ( aCount < bCount ){ return 1; }
-            return 0;
-        });
-    }else if (criteria === ORDER_BY_COST_ASC){
-        result = array.sort(function(a, b) {
-            let aCost = parseInt(a.costAsc);
-            let bCost = parseInt(b.costAsc);
-
-            if ( aCost > bCost ){ return -1; }
-            if ( aCost < bCost ){ return 1; }
-            return 0;
-        });
-    }else if (criteria === ORDER_BY_COST_DESC){
-        result = array.sort(function(b, a) {
-            let bCost = parseInt(b.costDesc);
-            let aCost = parseInt(a.costDesc);
-
-            if ( bCost > aCost ){ return -1; }
-            if ( bCost < aCost ){ return 1; }
             return 0;
         });
     }
