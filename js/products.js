@@ -7,7 +7,7 @@ var minCount = undefined;
 var maxCount = undefined;
 
 
-function sortCategories(criteria, array){
+function sortProducts(criteria, array){
     let result = [];
     if (criteria === ORDER_BY_COST_UPWARD){
         result = array.sort(function(a, b) {
@@ -17,14 +17,14 @@ function sortCategories(criteria, array){
         });
     }else if (criteria === ORDER_BY_COST_FALLING){
         result = array.sort(function(a, b) {
-            if ( a.cost > b.cost ){ return 1; }
-            if ( a.cost < b.cost ){ return -1; }
+            if ( a.cost < b.cost ){ return 1; }
+            if ( a.cost > b.cost ){ return -1; }
             return 0;
         });
     }else if (criteria === ORDER_BY_RELEVANCE){
         result = array.sort(function(a, b) {
-            if ( a.cost < b.cost ){ return -1; }
-            if ( a.cost > b.cost ){ return 1; }
+            if ( a.soldCount > b.soldCount ){ return -1; }
+            if ( a.soldCount < b.soldCount ){ return 1; }
             return 0;
         });
     }
@@ -38,8 +38,8 @@ function sortCategories(criteria, array){
         for(let i = 0; i < currentProductsArray.length; i++){
             let product = currentProductsArray[i];
 
-            if (((minCount == undefined) || (minCount != undefined && parseInt(product.productCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.productCount) <= maxCount))){
+            if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
     
             htmlContentToAppend += `
             <div class="list-group-item list-group-item-action">
@@ -60,6 +60,7 @@ function sortCategories(criteria, array){
             </div>
         </div>
             `
+            }
     
             document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
         }
