@@ -17,8 +17,8 @@ function sortProducts(criteria, array){
         });
     }else if (criteria === ORDER_BY_COST_FALLING){
         result = array.sort(function(a, b) {
-            if ( a.cost < b.cost ){ return 1; }
-            if ( a.cost > b.cost ){ return -1; }
+            if ( a.cost > b.cost ){ return 1; }
+            if ( a.cost < b.cost ){ return -1; }
             return 0;
         });
     }else if (criteria === ORDER_BY_RELEVANCE){
