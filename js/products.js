@@ -11,8 +11,8 @@ function sortProducts(criteria, array){
     let result = [];
     if (criteria === ORDER_BY_COST_UPWARD){
         result = array.sort(function(a, b) {
-            if ( a.cost < b.cost ){ return -1; }
-            if ( a.cost > b.cost ){ return 1; }
+            if ( a.cost > b.cost ){ return -1; }
+            if ( a.cost < b.cost ){ return 1; }
             return 0;
         });
     }else if (criteria === ORDER_BY_COST_FALLING){
