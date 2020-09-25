@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   
   let usuario = localStorage.getItem("usuario"); 
   if (usuario) {
-    document.getElementById("nombreUsuario").innerHTML = usuario;
+    document.getElementById("inputName").innerHTML = usuario;
   }
   });
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
