@@ -1,3 +1,4 @@
+//Variables utilizadas en todo el código
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_PROD_COUNT = "Cant.";
@@ -6,6 +7,7 @@ var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
 
+//Función para los filtros
 function sortCategories(criteria, array){
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
@@ -35,6 +37,7 @@ function sortCategories(criteria, array){
     return result;
 }
 
+//Función que muestra la lista de categorías
 function showCategoriesList(){
 
     let htmlContentToAppend = "";
@@ -66,6 +69,7 @@ function showCategoriesList(){
     }
 }
 
+//Función para aplicar y mostrar según filtros
 function sortAndShowCategories(sortCriteria, categoriesArray){
     currentSortCriteria = sortCriteria;
 
@@ -88,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
         }
     });
-
+         //Accediendo a los Id's establecidos en html
     document.getElementById("sortAsc").addEventListener("click", function(){
         sortAndShowCategories(ORDER_ASC_BY_NAME);
     });
@@ -134,3 +138,20 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 });
+
+let nombreUsuario = ""; 
+
+//Limpia los datos que se habían proporcionado
+document.addEventListener("DOMContentLoaded", function(e){
+    localStorage.clear(); 
+    localStorage.removeItem('usuario');
+});
+
+//Función accede al nombreUsuario
+function setName(){ 
+    //Acceder al id donde está guardado el nombre de usuario (Index)
+    nombreUsuario = document.getElementById("inputName").value;
+
+    if(nombreUsuario != undefined && nombreUsuario != "");
+    localStorage.setItem("usuario", nombreUsuario);
+}

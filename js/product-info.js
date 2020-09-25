@@ -1,10 +1,13 @@
+//Variables globales, utilizadas en todo el código
 var product = {};
 var productList = {};
 const maxRating = 5;
 var productScore = "";
 var comments = [];
 var score = "";
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//Función para mostrar imágenes
 function showImagesGallery(array) {
 
     let htmlContentToAppend = "";
@@ -23,7 +26,9 @@ function showImagesGallery(array) {
         document.getElementById("productImagesWrapper").innerHTML = htmlContentToAppend;
     }
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//Función para productos relacionados
 function showRelatedProducts(relatedProductsArray) {
     getJSONData(PRODUCTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
@@ -34,7 +39,7 @@ function showRelatedProducts(relatedProductsArray) {
             for (let i = 0; i < relatedProductsArray.length; i++) {
                 let relatedProductPosition = relatedProductsArray[i];
                 let relatedProduct = productList[relatedProductPosition];
-
+             //Html de productos relacionados
                 htmlRelatedProducts += `
                 <div class= "col-lg-3 col-md-4 col-6 border">
                     <div id="relatedProductImg" class= "row">
@@ -53,7 +58,9 @@ function showRelatedProducts(relatedProductsArray) {
         }
     })
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//Función para agregar los comentarios predefinidos
 function showComments() {
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
@@ -92,6 +99,7 @@ function showComments() {
         }
     });
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
@@ -110,9 +118,27 @@ document.addEventListener("DOMContentLoaded", function(e){
             productSoldCountHTML.innerHTML = product.soldCount;
             productCategoryHTML.innerHTML = product.category;
             
-            showImagesGallery(product.images);
-            showRelatedProducts(product.relatedProducts);
+            showImagesGallery(product.images); //Llamo la función que muestra las imágenes del producto
+            showRelatedProducts(product.relatedProducts); //Función que muestra productos relacionados
         }
     });
-    showComments();
+    showComments(); //Llamo la función que mostrará los comentarios
 });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let nombreUsuario = ""; //Variable global
+
+//Limpia los datos que se habían proporcionado
+document.addEventListener("DOMContentLoaded", function(e){
+    localStorage.clear(); 
+    localStorage.removeItem('usuario');
+});
+
+//Función accede al nombreUsuario
+function setName(){ 
+    //Acceder al id donde está guardado el nombre de usuario (Index)
+    nombreUsuario = document.getElementById("inputName").value;
+
+    if(nombreUsuario != undefined && nombreUsuario != "");
+    localStorage.setItem("usuario", nombreUsuario);
+}

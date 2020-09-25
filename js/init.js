@@ -1,3 +1,4 @@
+//Todas las urls
 const CATEGORIES_URL = "https://japdevdep.github.io/ecommerce-api/category/all.json";
 const PUBLISH_PRODUCT_URL = "https://japdevdep.github.io/ecommerce-api/product/publish.json";
 const CATEGORY_INFO_URL = "https://japdevdep.github.io/ecommerce-api/category/1234.json";
@@ -6,7 +7,9 @@ const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678
 const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//Animación 
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }
@@ -14,7 +17,9 @@ var showSpinner = function(){
 var hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//Buscar información y tratar de entender mejor esta parte del código
 var getJSONData = function(url){
     var result = {};
     showSpinner();
@@ -39,14 +44,14 @@ var getJSONData = function(url){
         return result;
     });
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+//Acceder al nombre del usuario y dejarlo en la parte superior de la página
 document.addEventListener("DOMContentLoaded", function(e){
-  let usuario = localStorage.getItem("usuario");
   
+  let usuario = localStorage.getItem("usuario"); 
   if (usuario) {
     document.getElementById("nombreUsuario").innerHTML = usuario;
   }
   });
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////

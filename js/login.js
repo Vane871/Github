@@ -1,14 +1,17 @@
-let nombreUsuario = "";
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+let nombreUsuario = ""; //Variable global
+
+//Limpia los datos que se habían proporcionado
 document.addEventListener("DOMContentLoaded", function(e){
-    localStorage.clear();
+    localStorage.clear(); 
     localStorage.removeItem('usuario');
 });
 
-function setName(){
+//Función accede al nombreUsuario
+function setName(){ 
+    //Acceder al id donde está guardado el nombre de usuario (Index)
     nombreUsuario = document.getElementById("inputName").value;
+
     if(nombreUsuario != undefined && nombreUsuario != "");
     localStorage.setItem("usuario", nombreUsuario);
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////

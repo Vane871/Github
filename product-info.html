@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
-
+<!------------------------------------------------------------------------------------------------------->
+<!--Todos los estilos-->
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,6 +15,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
 </head>
+<!-------------------------------------------------------------------------------------------------------->
 
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
@@ -22,9 +24,24 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      
+<!--Información de ususario-->
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="nombreUsuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </button>
+        <div class="dropdown-menu" aria-labelledby="nombreUsuario">
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <a class="dropdown-item" href="index.html">Cerrar sesión</a>
+        </div>
+      </div>
     </div>
   </nav>
+      </div>
+  </nav>
+  <!------------------------------------------------------------------------------------------------------->
+ 
   <div class="container p-5">
     <div class="text-center p-4">
     </div>
@@ -34,6 +51,8 @@
           <h2>Descripción del producto.</h2>
           <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
         </div>
+<!------------------------------------------------------------------------------------------------------->
+<!--Información del producto-->
         <h3 id="productName"></h3>
         <hr class="my-3">
         <dl>
@@ -70,7 +89,8 @@
               </div>
             </div>
           </dd>
-
+<!---------------------------------------------------------------------------------------------------->
+<!--Caja de comentarios y cajita para puntuación. Debo hacer arreglos aquí-->
           <dt>Comentarios</dt>
           <hr class="my-3">
           <dd>
@@ -84,11 +104,12 @@
 
           <p><form>Puntuación <div><select><optgroup label="Puntuación"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></optgroup></select></div></form></p>
             
-        </dl>
+        </dl> <!--Esto cierra desde información de producto-->
         <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
       </div>
     </main>
   </div>
+  <!------------------------------------------------------------------------------------------------------------------>
 
   <footer class="text-muted">
     <div class="container">
@@ -105,6 +126,8 @@
       <div></div>
     </div>
   </div>
+  <!----------------------------------------------------------------------------------------------------->
+  <!--Scripts-->
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
