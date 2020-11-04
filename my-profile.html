@@ -11,6 +11,7 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <!---------------------------------------------------------------------------------------------------------------------->
 
   <style>
     .bd-placeholder-img {
@@ -32,7 +33,7 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
 </head>
-
+<!-------------------------------------------------------------------------------------------------------------->
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
@@ -40,29 +41,47 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-    </div>
-  </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
+      <!--Información del ususario-->
+        
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="nombreUsuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     </button>
+    <div class="dropdown-menu" aria-labelledby="nombreUsuario">
+      <a class="dropdown-item" href="cart.html">Mi carrito</a>
+      <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+      <a class="dropdown-item" href="index.html">Cerrar sesión</a>
+    </div>
   </div>
+</div>
+</nav>
+  <!---------------------------------------------------------------------------------------------------------->
+  <!--Creación de ventana mi perfil-->
+  <div class="container">
+    <h3>Mi perfil</h3>
+  <form>
+    <div class="form-group">
+      <label for="formGroup1">Nombre completo:</label>
+      <input type="text" class="form-control" id="nombreC">
+    </div>
+    <div class="form-group">
+      <label for="formGroup2">Edad:</label>
+      <input type="text" class="form-control" id="edad">
+    </div>
+    <div class="form-group">
+      <label for="formGroup3">Correo electrónico:</label>
+      <input type="text" class="form-control" id="email">
+    </div>
+    <div class="form-group">
+      <label for="formGroup4">Teléfono de contacto:</label>
+      <input type="text" class="form-control" id="telefono">
+    </div>
+    <button type="button" class="btn btn-primary" onclick="guardar()">Guardar</button>
+  </form>
+</div>
+</div>
+
+  <!---------------------------------------------------------------------------------------------------------------->
+  
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

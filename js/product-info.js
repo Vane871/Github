@@ -12,7 +12,7 @@ function showImagesGallery(array) {
 
     let htmlContentToAppend = "";
 
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) { //Recorre el arreglo armando el HTML para las imágenes
         let imageSrc = array[i];
 
         htmlContentToAppend += `
