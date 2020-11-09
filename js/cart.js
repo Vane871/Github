@@ -1,7 +1,15 @@
 let nombreUsuario = ""; 
+//Variables para costos
 let subtotalGlobal = 0; //Subtotal general
-let arrayArticles=[];
+let arrayArticles = [];
 let envio = 0; 
+//Variables para validacions
+let formaPago = "";
+let validarDatosOK = false;
+let validarForma = false;
+
+const transferencia = "transferencia";
+const credito = "tarjeta";
 
 //Función accede al nombreUsuario
 function setName(){ 
@@ -77,9 +85,87 @@ function total(){
     document.getElementById("total").innerHTML = "UYU " + total;
 }
 
+document.getElementById("premium").addEventListener("click",function(){
+    envio = 0.15;
+    document.getElementById("envio").innerHTML = "UYU " + envio * subtotalGlobal;
+    total();
+});
+
+document.getElementById("express").addEventListener("click",function(){
+    envio = 0.07;
+    document.getElementById("envio").innerHTML = "UYU " + envio * subtotalGlobal;
+    total();
+});
+
+document.getElementById("standard").addEventListener("click",function(){
+    envio = 0.05;
+    document.getElementById("envio").innerHTML = "UYU " + envio * subtotalGlobal;
+    total();
+});
 
 
 //Forma de pago
+function validar(){
+    if(formaPago === credito){
+        let numero = document.getElementById("creditCardNumber").value;
+        let codigo = document.getElementById("creditCardSecNumber").value;
+        let fecha = document.getElementById("dueDate").value;
+
+        if(numero === "" || codigo === "" || fecha === ""){
+            alert("Por favor, ingrese todos los datos");
+            validarForma = false;
+        }else{
+            alert("Forma de pago seleccionada: crédito");
+            validarForma = true;
+        }
+    }
+
+    if(formaPago === transferencia){
+        let numeroCuenta = document.getElementById("bankAccountNumber").value;
+
+        if(numeroCuenta === ""){
+            alert("Por favor, ingrese el número de cuenta");
+            validarForma = false;
+        }else{
+            validarForma = true;
+        }
+    }
+    if(formaPago == ""){
+        validarOK = false;
+    }
+}
+
+function validarDatos(){
+    let direccion = document.getElementById("formdireccion").value;
+    let pais = document.getElementById("formPais").value;
+    let codigoP = document.getElementById("formCodPos").value;
+
+    if(direccion === "" || pais === "" || codigoP === ""){
+        alert("Debe completar todos los datos");
+        validarDatosOK = false;
+    }else{
+        alert("Datos guardados con éxito");
+        validarDatosOK = true;
+    }
+}
+
+function finalizarCompra(){
+    validarDatos();
+    validar();
+    if(validarDatosOK && validarForma){
+        alert("Compra realizada con éxito");
+    }else{
+        alert("Debe completar todos los datos");
+    }
+}
+
+document.getElementById("credito").addEventListener("click",function(){
+    formaPago = credito;
+});
+
+document.getElementById("transferencia").addEventListener("click",function(){
+    formaPago = transferencia;
+});
 
 //Aclaración fetch: toma un argumento (ruta de lo que quiero buscar) y lo devuelve en un objeto (promise).
 document.addEventListener("DOMContentLoaded", function(e){

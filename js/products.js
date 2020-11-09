@@ -42,7 +42,7 @@ function sortProducts(criteria, array){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
     
             htmlContentToAppend += `
-            <div class="list-group-item list-group-item-action">
+            <div class="col-lg-6 col-sm-12">
                 <div class="row">
                     <div class="col-3">
                         <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">

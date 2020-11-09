@@ -42,115 +42,167 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-    <!---------------------------------------------------------------------------------------------------------->
-  <!--Información del ususario-->
+      <!---------------------------------------------------------------------------------------------------------->
+      <!--Información del ususario-->
         
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="nombreUsuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    </button>
-    <div class="dropdown-menu" aria-labelledby="nombreUsuario">
+     <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="nombreUsuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      </button>
+      <div class="dropdown-menu" aria-labelledby="nombreUsuario">
       <a class="dropdown-item" href="cart.html">Mi carrito</a>
       <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
       <a class="dropdown-item" href="index.html">Cerrar sesión</a>
+      </div>
+     </div>
     </div>
-  </div>
-</div>
-</nav>
-<!------------------------------------------------------------------------------------------------------->
-
-
+  </nav>
+ <!------------------------------------------------------------------------------------------------------->
   <div class="container">
     <div class="text-center p-4">
       <h2>Carrito de compras</h2>
     </div>
      <!--productos-->
-
      <table class="table">
-      <thead>
-        <tr>
+       <thead>
+         <tr>
           <th scope="col"></th>
           <th scope="col">Nombre</th>
           <th scope="col">Cantidad</th>
           <th scope="col">Costo por unidad</th>
           <th scope="col">Subtotal</th>
-        </tr>
-      </thead>
-      <tbody id="cart-products">
-      </tbody>
-    </table>
-<!---------------------------------------------------------------------------------------------------------------->
-<!--Todo lo relacionado con envío-->
-<h4 class="mb-3">Datos para envío</h4>
-<form>
-  <div class="form-group">
-    <label for="formGroupInput">Dirección</label>
-    <input type="text" class="form-control" id="formDireccion" placeholder="Calle, núumero, esquina">
-  </div>
-  <div class="form-group">
-    <label for="formGroupInput">País</label>
-    <input type="text" class="form-control" id="formPais">
-  </div>
-  <div class="form-group">
-    <label for="formGroupInput">Código postal</label>
-    <input type="text" class="form-control" id="formCodPos">
-  </div>
-</form>
+         </tr>
+        </thead>
+         <tbody id="cart-products">
+         </tbody>
+      </table>
+    <!------------------------------------------------------------------------------------------------------------>
+    <!--Todo lo relacionado con envío-->
+    <h4 class="mb-3">Datos para envío</h4>
+    <form>
+     <div class="form-group">
+       <label for="formGroupInput">Dirección</label>
+       <input type="text" class="form-control" id="formDireccion" placeholder="Calle, núumero, esquina">
+     </div>
+     <div class="form-group">
+       <label for="formGroupInput">País</label>
+       <input type="text" class="form-control" id="formPais">
+     </div>
+     <div class="form-group">
+       <label for="formGroupInput">Código postal</label>
+       <input type="text" class="form-control" id="formCodPos">
+     </div>
+   </form>
 
-<h4 class="mb-3">Tipos de envío</h4>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="tipoEnvio" id="premium" value="option1" checked>
-  <label class="form-check-label" for="exampleRadios1">
-    Premium (2-5 días) - Costo del 15% sobre el subtotal.  
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="tipoEnvio" id="express" value="option1" checked>
-  <label class="form-check-label" for="exampleRadios1">
-    Express (5-8 días) - Costo del 7% sobre el subtotal.  
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="tipoEnvio" id="standard" value="option1" checked>
-  <label class="form-check-label" for="exampleRadios1">
-    Standard (12-15 días) - Costo del 5% sobre el subtotal.  
-  </label>
-</div>
-<!------------------------------------------------------------------------------------------------------------------->
+    <h4 class="mb-3">Tipos de envío</h4>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="tipoEnvio" id="premium" value="option1" checked>
+         <label class="form-check-label" for="exampleRadios1">
+            Premium (2-5 días) - Costo del 15% sobre el subtotal.  
+         </label>
+      </div>
+   <div class="form-check">
+        <input class="form-check-input" type="radio" name="tipoEnvio" id="express" value="option1" checked>
+         <label class="form-check-label" for="exampleRadios1">
+            Express (5-8 días) - Costo del 7% sobre el subtotal.  
+         </label>
+    </div>
+   <div class="form-check">
+        <input class="form-check-input" type="radio" name="tipoEnvio" id="standard" value="option1" checked>
+         <label class="form-check-label" for="exampleRadios1">
+           Standard (12-15 días) - Costo del 5% sobre el subtotal.  
+        </label>
+    </div>
+    <br></br>
+     <!------------------------------------------------------------------------------------------------------------->
+    <!--Formas de pago (modal)-->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
+      Forma de pago
+    </button>
+    <div class="modal" tabindex="-1" id="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+         <div class="modal-header">
+         <h5 class="modal-title">Forma de pago</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="formaPago" id="crédito" value="option1">
+               <label class="form-check-label" for="formaPago">
+                  Tarjeta de crédito  
+               </label>
+               </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="shippingStreet">Número de tarjeta</label>
+              <input type="text" class="form-control" id="creditCardNumber" placeholder="" value="">
+              <div class="invalid-feedback">
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="shippingStreetNumber">Código de seg.</label>
+              <input type="number" class="form-control" id="creditCardSecNumber" placeholder="" value="">
+              <div class="invalid-feedback">
+                Ingresa el código de seguridad
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="dueDate">Vencimiento (MM/AA)</label>
+              <input type="text" class="form-control" id="dueDate" placeholder="" value="">
+              Ingrese fecha de vencimiento
+            </div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="formaPago" id="transferencia" value="option1">
+               <label class="form-check-label" for="formaPago">
+                 Transferencia bancaria  
+              </label>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="bankAccountNumber">Número de cuenta</label>
+              <input class="text" class="form-control" id="bankAccountNumber" placeholder="" value="">
+              <div class="invalid-feedback">
+                Ingresa un número de cuenta
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+         <button type="button" class="btn btn-primary" onclick="validar()">Guardar</button>
+        </div>
+      </div>
+    </div>
+   </div>
+   <br></br>
+     <!------------------------------------------------------------------------------------------------------------>
     <!--Costos-->
     <div class="row">
       <div class="col">
         <h4 class="mb-3">Costos</h4>
-      <ul class = "list-group mb-3">
+       <ul class = "list-group mb-3">
         <li class="list-group-item justify-content-between d-flex"><h5>SubTotal </h5><span id="subtotal"></span></li>
         <li class="list-group-item justify-content-between d-flex"><h5>Total </h5><span id="total"></span></li>
-      </ul>
-      
-    </div>
-  </div>
-
-</div>
-<!---------------------------------------------------------------------------------------------------------------->
-<!--Formas de pago-->
-<div class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Forma de pago</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <li class="list-group-item justify-content-between d-flex"><h5>Envío </h5><span id="envio"></span></li>
+       </ul>
       </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!------------------------------------------------------------------------------------------------------------------>
+     </div>
+     <button type="button" class="btn btn-primary" onclick="finalizarCompra()">
+       Finalizar compra
+    </button>
+   </div>
+ <!----------------------------------------------------------------------------------------------------------------->
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
