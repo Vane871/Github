@@ -131,12 +131,12 @@ function validar(){
         }
     }
     if(formaPago == ""){
-        validarOK = false;
+        validarForma = false;
     }
 }
 
 function validarDatos(){
-    let direccion = document.getElementById("formdireccion").value;
+    let direccion = document.getElementById("formDireccion").value;
     let pais = document.getElementById("formPais").value;
     let codigoP = document.getElementById("formCodPos").value;
 

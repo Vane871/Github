@@ -45,7 +45,7 @@ function sortProducts(criteria, array){
             <div class="col-lg-6 col-sm-12">
                 <div class="row">
                     <div class="col-3">
-                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+                        <img src="` + product.imgSrc + `" alt="` + product.description + `" style="max-width:80px;" class="img-responsive">
                     </div>
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
