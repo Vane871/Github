@@ -80,7 +80,7 @@ function calcularSubtotal(){
 }
 
 function total(){
-    //Nota: Aún falta calcular envío
+    //Nota: Con costo de envío según sus porcentajes
     let total = subtotalGlobal + envio;
     document.getElementById("total").innerHTML = "UYU " + total;
 }
@@ -105,6 +105,7 @@ document.getElementById("standard").addEventListener("click",function(){
 
 
 //Forma de pago
+//Validaciones según forma de pago
 function validar(){
     if(formaPago === credito){
         let numero = document.getElementById("creditCardNumber").value;
@@ -134,7 +135,7 @@ function validar(){
         validarForma = false;
     }
 }
-
+//Función para requerir los datos de entrega
 function validarDatos(){
     let direccion = document.getElementById("formDireccion").value;
     let pais = document.getElementById("formPais").value;
@@ -144,16 +145,15 @@ function validarDatos(){
         alert("Debe completar todos los datos");
         validarDatosOK = false;
     }else{
-        alert("Datos guardados con éxito");
         validarDatosOK = true;
     }
 }
-
+//Función que sirve para permitir al usuario continuar, si todos los datos están validados correctamente
 function finalizarCompra(){
     validarDatos();
     validar();
     if(validarDatosOK && validarForma){
-        alert("Compra realizada con éxito");
+        comprar();
     }else{
         alert("Debe completar todos los datos");
     }
@@ -176,3 +176,17 @@ document.addEventListener("DOMContentLoaded", function(e){
             showCartProductsAndTotalCost(arrayArticles);
         });
 });
+
+function comprar(){
+    fetch("http://localhost:3000/comprar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(arrayArticles)
+    }).then(function(res){
+        return res.json();
+    }).then(function(response){
+        alert(response.msg);
+    })
+}

@@ -8,7 +8,8 @@ var minCount = undefined;
 var maxCount = undefined;
 
 //Función para los filtros
-function sortCategories(criteria, array){
+function sortCategories(criteria, array){//Sort ordena los elementos de un arreglo, para devolverlo ordenado
+                                        //según los criterios que definimos
     let result = [];
     if (criteria === ORDER_ASC_BY_NAME)
     {
